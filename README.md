@@ -1,3 +1,5 @@
+コードリーディング自己学習の MVP。設計は [docs/design.md](docs/design.md)、型は `domain/` にある。
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
