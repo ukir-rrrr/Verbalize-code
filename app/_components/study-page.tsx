@@ -153,10 +153,10 @@ export function StudyPage() {
   }
 
   const dots = (
-    <div className="flex items-center gap-2">
-      <span className="h-3 w-3 rounded-full bg-[#5b4a3f]" />
-      <span className="h-3 w-3 rounded-full bg-[#5b4a3f]" />
-      <span className="h-3 w-3 rounded-full bg-[#5b4a3f]" />
+    <div className="flex items-center gap-2.5">
+      <span className="h-3 w-3 rounded-full bg-[#7d7168]" />
+      <span className="h-3 w-3 rounded-full bg-[#7d7168]" />
+      <span className="h-3 w-3 rounded-full bg-[#7d7168]" />
     </div>
   )
 
@@ -168,9 +168,9 @@ export function StudyPage() {
       : null
 
   return (
-    <div className="flex flex-1 items-center justify-center bg-[#f3a04a] p-8">
-      <div className="w-full max-w-3xl overflow-hidden rounded-2xl bg-[#2a1c14] shadow-2xl">
-        <div className="flex items-center justify-between px-5 py-4">
+    <div className="flex flex-1 items-center justify-center bg-[radial-gradient(125%_125%_at_50%_30%,#f8c25a_0%,#ef9539_50%,#d76c25_100%)] p-10 sm:p-14">
+      <div className="w-full max-w-4xl overflow-hidden rounded-3xl bg-gradient-to-b from-[#32231a] to-[#231710] shadow-[0_35px_120px_-25px_rgba(50,15,0,0.7)] ring-1 ring-black/20">
+        <div className="flex items-center justify-between px-8 pt-6 pb-3">
           {dots}
           {isActive ? (
             <button
@@ -183,7 +183,7 @@ export function StudyPage() {
           ) : null}
         </div>
 
-        <div className="px-5 pb-6">
+        <div className="px-8 pb-9">
           {vaultNote ? (
             <p className="mb-3 font-sans text-xs text-[#f0e2c4]/50">{vaultNote}</p>
           ) : null}

@@ -1,6 +1,6 @@
 import type { CodeViewModel } from '@/domain/code-display'
 
-export type TokenKind = 'plain' | 'comment' | 'string' | 'keyword' | 'jsx'
+export type TokenKind = 'plain' | 'comment' | 'string' | 'keyword' | 'jsx' | 'number'
 
 export type HighlightToken = {
   readonly text: string
@@ -134,6 +134,12 @@ function tokenizeLine(
       } else {
         i = m
       }
+      continue
+    }
+    if (/[0-9]/.test(ch)) {
+      let m = i
+      while (m < len && /[0-9._]/.test(content[m])) m += 1
+      emit('number', i, m)
       continue
     }
     i += 1

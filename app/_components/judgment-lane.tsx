@@ -43,11 +43,11 @@ export function JudgmentLane({ lines, notes }: JudgmentLaneProps) {
   }
 
   return (
-    <div className="select-none font-sans text-[13px] leading-7">
+    <div className="select-none font-sans text-[13px] leading-8">
       {lines.map((line, index) => {
         const marks = perLine[index] ?? []
         return (
-          <div key={line.startOffset} className="flex min-h-7 flex-col justify-center gap-0.5">
+          <div key={line.startOffset} className="flex min-h-8 flex-col justify-center gap-0.5">
             {marks.map(({ note, isFirst }) => (
               <div key={`${note.range.startOffset}-${note.range.endOffset}`} className="flex gap-2">
                 <span className={`shrink-0 font-medium ${verdictClass(note.verdict)}`}>

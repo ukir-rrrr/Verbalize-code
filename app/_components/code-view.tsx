@@ -22,11 +22,13 @@ function kindClass(kind: TokenKind): string {
     case 'comment':
       return 'text-[#8d7d6e] italic'
     case 'string':
-      return 'text-lime-300'
+      return 'text-[#d9825f]'
+    case 'number':
+      return 'text-[#d9825f]'
     case 'keyword':
-      return 'text-amber-300'
+      return 'text-[#e6a24c]'
     case 'jsx':
-      return 'text-sky-300'
+      return 'text-[#dcc39a]'
     default:
       return ''
   }
@@ -89,18 +91,19 @@ export function CodeView({
   onSelect,
 }: CodeViewProps) {
   const lines = highlightLines(view)
+  const hasNotes = notes.length > 0
 
   return (
-    <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,16rem)] gap-x-6">
+    <div className="flex gap-x-6">
       <div
         ref={containerRef}
         onMouseUp={onSelect}
-        className="cursor-text whitespace-pre font-mono text-[15px] leading-7 text-[#f0e2c4]"
+        className="min-w-0 flex-1 cursor-text overflow-x-auto whitespace-pre font-mono text-[15px] leading-8 text-[#f0e2c4]"
       >
         {view.lines.map((line, index) => {
           const tokens = lines[index] ?? []
           return (
-            <div key={line.startOffset} className="min-h-7">
+            <div key={line.startOffset} className="min-h-8">
               {tokens.length === 0 ? (
                 <br />
               ) : (
@@ -112,7 +115,11 @@ export function CodeView({
           )
         })}
       </div>
-      <JudgmentLane lines={view.lines} notes={notes} />
+      {hasNotes ? (
+        <div className="w-56 shrink-0">
+          <JudgmentLane lines={view.lines} notes={notes} />
+        </div>
+      ) : null}
     </div>
   )
 }
